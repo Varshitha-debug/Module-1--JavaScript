@@ -1,0 +1,57 @@
+body {
+  font-family: 'Poppins', sans-serif;
+  margin: 20px;
+  background: #f9f9f9;
+}
+
+header {
+  margin-bottom: 20px;
+}
+
+nav select, nav input {
+  margin-right: 10px;
+  padding: 5px;
+}
+
+#eventsContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.eventCard {
+  background: white;
+  padding: 15px;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0,0,0,0.1);
+  width: 250px;
+  position: relative;
+}
+
+.eventCard h3 {
+  margin-top: 0;
+}
+
+button.registerBtn {
+  margin-top: 10px;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+#registrationSection {
+  margin-top: 40px;
+  background: white;
+  padding: 15px;
+  border-radius: 5px;
+  max-width: 400px;
+}
+
+#formMessage {
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+#loadingSpinner {
+  font-weight: bold;
+  color: #555;
+}
