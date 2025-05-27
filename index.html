@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Local Community Event Portal</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <header>
+    <h1>Local Community Event Portal</h1>
+    <nav>
+      <select id="categoryFilter">
+        <option value="all">All Categories</option>
+        <option value="music">Music</option>
+        <option value="workshop">Workshop</option>
+        <option value="sports">Sports</option>
+      </select>
+      <input id="searchInput" type="text" placeholder="Search events by name" />
+    </nav>
+  </header>
+
+  <main>
+    <section id="eventsContainer"></section>
+
+    <section id="registrationSection">
+      <h2>Register for an Event</h2>
+      <form id="registrationForm">
+        <label>
+          Name:
+          <input type="text" name="userName" required />
+        </label>
+        <label>
+          Email:
+          <input type="email" name="userEmail" required />
+        </label>
+        <label>
+          Select Event:
+          <select name="eventSelect" id="eventSelect" required>
+            <option value="">--Select--</option>
+          </select>
+        </label>
+        <button type="submit" id="registerBtn">Register</button>
+      </form>
+      <div id="formMessage"></div>
+    </section>
+
+    <section id="loadingSpinner" style="display:none;">Loading events...</section>
+  </main>
+
+  <script src="main.js"></script>
+</body>
+</html>
