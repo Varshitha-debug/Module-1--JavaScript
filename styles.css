@@ -1,57 +1,234 @@
+/* Reset some basics */
+* {
+  box-sizing: border-box;
+}
+
 body {
   font-family: 'Poppins', sans-serif;
-  margin: 20px;
-  background: #f9f9f9;
-}
-
-header {
-  margin-bottom: 20px;
-}
-
-nav select, nav input {
-  margin-right: 10px;
-  padding: 5px;
-}
-
-#eventsContainer {
+  margin: 0;
+  padding: 20px;
+  background: #f0f2f5;
+  color: #333;
+  line-height: 1.6;
+  min-height: 100vh;
   display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
+  flex-direction: column;
+  align-items: center;
 }
 
+/* Header styling */
+header {
+  width: 100%;
+  max-width: 1100px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+header h1 {
+  font-weight: 700;
+  font-size: 2.5rem;
+  color: #222;
+  margin-bottom: 10px;
+  letter-spacing: 1px;
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+nav select,
+nav input {
+  padding: 10px 15px;
+  font-size: 1rem;
+  border-radius: 6px;
+  border: 1.8px solid #ccc;
+  outline-offset: 2px;
+  transition: border-color 0.3s ease;
+  min-width: 180px;
+}
+
+nav select:focus,
+nav input:focus {
+  border-color: #0077ff;
+  box-shadow: 0 0 5px rgba(0, 119, 255, 0.5);
+}
+
+/* Main container */
+main {
+  width: 100%;
+  max-width: 1100px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+/* Events Container - grid layout */
+#eventsContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 25px;
+}
+
+/* Event card styling */
 .eventCard {
-  background: white;
-  padding: 15px;
-  border-radius: 5px;
-  box-shadow: 0 0 5px rgba(0,0,0,0.1);
-  width: 250px;
-  position: relative;
+  background: #fff;
+  padding: 20px 25px;
+  border-radius: 12px;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+  cursor: default;
+}
+
+.eventCard:hover {
+  box-shadow: 0 12px 25px rgba(0, 119, 255, 0.15);
+  transform: translateY(-4px);
 }
 
 .eventCard h3 {
   margin-top: 0;
+  font-size: 1.4rem;
+  color: #004aad;
+  font-weight: 700;
+  margin-bottom: 8px;
 }
 
-button.registerBtn {
-  margin-top: 10px;
-  padding: 5px 10px;
+.eventCard p {
+  margin: 4px 0;
+  font-size: 0.95rem;
+  color: #555;
+}
+
+.registerBtn {
+  margin-top: 15px;
+  align-self: start;
+  background-color: #0077ff;
+  border: none;
+  color: white;
+  padding: 10px 18px;
+  font-size: 1rem;
+  border-radius: 8px;
   cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
 }
 
+.registerBtn:hover:not(:disabled) {
+  background-color: #005fcc;
+}
+
+.registerBtn:disabled {
+  background-color: #aaa;
+  cursor: not-allowed;
+}
+
+/* Registration Section */
 #registrationSection {
-  margin-top: 40px;
   background: white;
-  padding: 15px;
-  border-radius: 5px;
-  max-width: 400px;
+  padding: 30px 35px;
+  border-radius: 12px;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.06);
+  max-width: 450px;
+  margin: 0 auto;
+}
+
+#registrationSection h2 {
+  text-align: center;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #222;
+  margin-bottom: 25px;
+}
+
+#registrationForm {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+#registrationForm label {
+  display: flex;
+  flex-direction: column;
+  font-weight: 600;
+  color: #333;
+  font-size: 1rem;
+}
+
+#registrationForm input,
+#registrationForm select {
+  margin-top: 6px;
+  padding: 10px 15px;
+  font-size: 1rem;
+  border: 1.5px solid #bbb;
+  border-radius: 8px;
+  transition: border-color 0.3s ease;
+}
+
+#registrationForm input:focus,
+#registrationForm select:focus {
+  border-color: #0077ff;
+  outline: none;
+  box-shadow: 0 0 5px rgba(0, 119, 255, 0.5);
+}
+
+#registerBtn {
+  background-color: #0077ff;
+  border: none;
+  padding: 12px 20px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  border-radius: 10px;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#registerBtn:hover {
+  background-color: #005fcc;
 }
 
 #formMessage {
-  margin-top: 10px;
-  font-weight: bold;
+  margin-top: 15px;
+  font-weight: 700;
+  color: #0077ff;
+  text-align: center;
+  min-height: 1.2em;
 }
 
+/* Loading Spinner */
 #loadingSpinner {
-  font-weight: bold;
-  color: #555;
+  font-weight: 700;
+  color: #0077ff;
+  text-align: center;
+  font-size: 1.2rem;
+  margin-top: 30px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  nav {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  nav select,
+  nav input {
+    width: 100%;
+    max-width: 300px;
+    margin-bottom: 10px;
+  }
+
+  #registrationSection {
+    max-width: 100%;
+    padding: 25px 20px;
+  }
+
+  #eventsContainer {
+    grid-template-columns: 1fr;
+  }
 }
